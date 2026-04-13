@@ -16,6 +16,7 @@
         </a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact" class="btn-primary">Get in Touch</a></li>
         </ul>
@@ -33,6 +34,60 @@
         </div>
     </header>
 
+    <section id="about" class="services" style="padding-bottom: 2rem;">
+        <div class="section-header">
+            <h2 class="slide-up">About NCFSS</h2>
+            <p class="slide-up">Reliable, high-quality support services designed to make everyday life easier.</p>
+        </div>
+        <div class="services-tabs-container">
+            <div class="tabs-nav slide-up">
+                <button class="tab-btn active" data-tab="tab-about-us">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                    About Us
+                </button>
+                <button class="tab-btn" data-tab="tab-about-values">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    Our Values
+                </button>
+                <button class="tab-btn" data-tab="tab-about-mission">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                    Mission Statement
+                </button>
+            </div>
+
+            <div class="tabs-content slide-up">
+                <div id="tab-about-us" class="tab-pane active glass">
+                    <div class="tab-text">
+                        <h3>NC Facilities & Support Services Ltd (NCFSS)</h3>
+                        <p>At NCFSS, we provide reliable, high-quality support services designed to make everyday life easier for individuals, homes, and businesses. From cleaning and maintenance to transport and logistics, we are committed to delivering practical solutions with professionalism and care.</p>
+                        <p>We pride ourselves on being dependable, efficient, and detail-oriented, ensuring every job is completed to the highest standard.</p>
+                    </div>
+                </div>
+
+                <div id="tab-about-values" class="tab-pane glass">
+                    <div class="tab-text">
+                        <h3>Our Values</h3>
+                        <ul class="tab-features double-col">
+                            <li><strong>Reliability</strong> – We deliver on our promises, on time and without compromise.</li>
+                            <li><strong>Professionalism</strong> – We uphold the highest standards in every service.</li>
+                            <li><strong>Respect</strong> – We treat every client and property with care.</li>
+                            <li><strong>Quality</strong> – We are committed to getting the job done right the first time.</li>
+                            <li><strong>Integrity</strong> – We operate with honesty, transparency, and accountability.</li>
+                            <li><strong>Resourcefulness</strong> – We collaborate with trusted partners for excellence.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="tab-about-mission" class="tab-pane glass">
+                    <div class="tab-text">
+                        <h3>Mission Statement</h3>
+                        <p>Our mission is to deliver trusted, efficient, and high-quality support services that improve the comfort, safety, and functionality of our clients' homes and businesses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="services">
         <div class="section-header">
             <h2 class="slide-up">Our Services</h2>
@@ -40,109 +95,103 @@
         </div>
         <div class="services-tabs-container">
             <div class="tabs-nav slide-up">
-                <button class="tab-btn active" data-tab="tab-facilities">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                    Facilities & Maintenance
-                </button>
-                <button class="tab-btn" data-tab="tab-cleaning">
+                <button class="tab-btn active" data-tab="tab-clean-new">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg>
-                    Cleaning & Environmental
+                    Commercial & Domestic Cleaning
                 </button>
-                <button class="tab-btn" data-tab="tab-care">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    Care & Support Services
+                <button class="tab-btn" data-tab="tab-grounds">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                    Exterior Grounds Maintenance
                 </button>
-                <button class="tab-btn" data-tab="tab-staffing">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                    Staffing Support Workers
+                <button class="tab-btn" data-tab="tab-facilities-new">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                    Facilities Maintenance
                 </button>
-                <button class="tab-btn" data-tab="tab-property">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M16 10h.01M8 10h.01M8 14h.01M12 14h.01M16 14h.01"></path></svg>
-                    Property & Site Support
+                <button class="tab-btn" data-tab="tab-transport">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    Transport & Logistics
                 </button>
             </div>
 
             <div class="tabs-content slide-up">
-                <div id="tab-facilities" class="tab-pane active glass">
+                <div id="tab-clean-new" class="tab-pane active glass">
                     <div class="tab-text">
-                        <h3>Facilities & Maintenance</h3>
-                        <p>Complete facility upkeep, minor repairs, and proactive maintenance to ensure optimum operational environments.</p>
-                        <p>Our dedicated team provides rapid response to maintenance requests, performing thorough checks and executing required repairs efficiently to minimize disruption to your core operations.</p>
-                        <ul class="tab-features">
-                            <li>Routine proactive inspections</li>
-                            <li>Plumbing, electrical, and general repairs</li>
-                            <li>Long-term facility health strategies</li>
+                        <h3>Commercial & Domestic Cleaning</h3>
+                        <p>Comprehensive cleaning services tailored to maintain pristine environments for both businesses and homes.</p>
+                        <ul class="tab-features double-col">
+                            <li>Monthly Maintenance</li>
+                            <li>Weekly & Fortnightly</li>
+                            <li>Window Cleaning</li>
+                            <li>Deep Cleans</li>
+                            <li>Interior, Decluttering and Disposal</li>
+                            <li>End of Tenancy</li>
+                            <li>Moving In & Out Cleans</li>
+                            <li>Upholstery</li>
+                            <li>Carpet General</li>
+                            <li>Deep Cleaning</li>
                         </ul>
                     </div>
                     <div class="tab-media">
-                        <img src="PHOTO-2026-04-03-17-25-11.jpg" alt="Facilities & Maintenance" class="tab-img">
+                        <img src="PHOTO-2026-04-03-17-25-11%202.jpg" alt="Commercial & Domestic Cleaning" class="tab-img">
                     </div>
                 </div>
 
-                <div id="tab-cleaning" class="tab-pane glass">
+                <div id="tab-grounds" class="tab-pane glass">
                     <div class="tab-text">
-                        <h3>Cleaning & Environmental</h3>
-                        <p>Industry-leading cleaning solutions prioritizing hygiene, aesthetics, and environmental sustainability.</p>
-                        <p>We deploy specialized cleaning teams that use environmentally friendly products and industry best practices to maintain a pristine, healthy space for your staff and clients.</p>
+                        <h3>Exterior Grounds Maintenance</h3>
+                        <p>Expert care for your outdoor spaces, ensuring they remain tidy, safe, and visually appealing year-round.</p>
                         <ul class="tab-features">
-                            <li>Green cleaning solutions</li>
-                            <li>Deep cleaning and sanitization</li>
-                            <li>Routine daily janitorial services</li>
+                            <li>Garden Clearance</li>
+                            <li>Yard Clearance</li>
+                            <li>Grass Cutting</li>
+                            <li>Hedge Trimming</li>
                         </ul>
                     </div>
                     <div class="tab-media">
-                        <img src="PHOTO-2026-04-03-17-25-11%202.jpg" alt="Cleaning & Environmental" class="tab-img">
+                        <img src="PHOTO-2026-04-03-17-25-11.jpg" alt="Exterior Grounds Maintenance" class="tab-img">
                     </div>
                 </div>
 
-                <div id="tab-care" class="tab-pane glass">
+                <div id="tab-facilities-new" class="tab-pane glass">
                     <div class="tab-text">
-                        <h3>Care & Support Services</h3>
-                        <p>Non-medical care and dedicated support services delivered with compassion, respect, and professionalism.</p>
-                        <p>Our screened and trained Support workers are equipped to provide essential day-to-day assistance tailored exactly to the needs of individuals, promoting independence and dignity.</p>
-                        <ul class="tab-features">
-                            <li>Individualized care plans</li>
-                            <li>Daily living assistance</li>
-                            <li>Companionship and community support</li>
+                        <h3>Facilities Maintenance</h3>
+                        <p>Complete facility upkeep, proactive maintenance, and specialized repairs to ensure optimal operational environments.</p>
+                        <ul class="tab-features double-col">
+                            <li>General Handyman Services</li>
+                            <li>Interior & Exterior Decorating</li>
+                            <li>Painting & Wallpaper Installation</li>
+                            <li>Tiling & Surface Restoration</li>
+                            <li>Property Refurbishment & Repairs</li>
+                            <li>Electrical Equipment Repair & Servicing</li>
+                            <li>Air Conditioning Installation & Maintenance</li>
+                            <li>Preventative & Reactive Maintenance</li>
+                            <li>Building Repairs & Maintenance</li>
                         </ul>
                     </div>
                     <div class="tab-media">
-                        <div class="image-grid">
-                            <img src="PHOTO-2026-04-03-17-25-11.jpg" alt="Care Support" class="tab-img">
-                            <img src="PHOTO-2026-04-03-17-25-11%202.jpg" alt="Care Services" class="tab-img">
-                        </div>
+                        <img src="PHOTO-2026-04-03-17-25-11%203.jpg" alt="Facilities Maintenance" class="tab-img">
                     </div>
                 </div>
 
-                <div id="tab-staffing" class="tab-pane glass">
+                <div id="tab-transport" class="tab-pane glass">
                     <div class="tab-text">
-                        <h3>Staffing Support Workers</h3>
-                        <p>Providing reliable, trained cleaning and support workers tailored to fill your operational gaps effectively.</p>
-                        <p>We supply flexible workforce solutions suited to sudden shortages or long-term operational needs effortlessly. Rest easy knowing that fully vetted professionals are handling your essential tasks.</p>
-                        <ul class="tab-features">
-                            <li>Fully vetted and compliant staff</li>
-                            <li>Flexible shift coverage</li>
-                            <li>Specialized operational talent</li>
+                        <h3>Transport and Logistics Services</h3>
+                        <p>Reliable and efficient transport solutions for individual, domestic, and commercial logistical needs.</p>
+                        <ul class="tab-features double-col">
+                            <li>House Removals & Relocations</li>
+                            <li>Domestic & Commercial Moves</li>
+                            <li>Furniture Transport & Assembly</li>
+                            <li>Parcel & Package Delivery</li>
+                            <li>Same-Day & Scheduled Deliveries</li>
+                            <li>Light Haulage Services</li>
+                            <li>Goods Collection & Drop-Off</li>
+                            <li>Single Item & Bulk Transport</li>
+                            <li>Local & Long-Distance Transport</li>
+                            <li>Office Moves & Business Relocations</li>
                         </ul>
                     </div>
                     <div class="tab-media">
-                        <img src="PHOTO-2026-04-03-17-25-11%203.jpg" alt="Staffing Support" class="tab-img">
-                    </div>
-                </div>
-
-                <div id="tab-property" class="tab-pane glass">
-                    <div class="tab-text">
-                        <h3>Property & Site Support</h3>
-                        <p>Round-the-clock site oversight, security assistance, and general property support ensuring peace of mind.</p>
-                        <p>From access control to perimeter monitoring and active site supervision, our services create an environment where your assets and personnel remain secure around the clock.</p>
-                        <ul class="tab-features">
-                            <li>24/7 site monitoring options</li>
-                            <li>Access control and keyholding</li>
-                            <li>Incident management and reporting</li>
-                        </ul>
-                    </div>
-                    <div class="tab-media">
-                        <img src="PHOTO-2026-04-03-17-25-11.jpg" alt="Site Support" class="tab-img">
+                        <img src="PHOTO-2026-04-03-17-25-11.jpg" alt="Transport & Logistics" class="tab-img">
                     </div>
                 </div>
             </div>
@@ -153,6 +202,16 @@
         <div class="cta-box glass slide-up">
             <h2>Ready to Elevate Your Facilities?</h2>
             <p>Partner with NCFSS for unparalleled maintenance, cleaning, and support.</p>
+            <div class="contact-details">
+                <a href="mailto:info@ncfss.co.uk" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    info@ncfss.co.uk
+                </a>
+                <a href="https://wa.me/447377547327" class="contact-link whatsapp-link" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    Call / WhatsApp: 07377547327
+                </a>
+            </div>
             <form class="contact-form">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>

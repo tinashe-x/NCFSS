@@ -35,9 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all buttons and panes
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
+            const container = btn.closest('.services-tabs-container');
+            const containerBtns = container.querySelectorAll('.tab-btn');
+            const containerPanes = container.querySelectorAll('.tab-pane');
+
+            // Remove active class from all buttons and panes in this container
+            containerBtns.forEach(b => b.classList.remove('active'));
+            containerPanes.forEach(p => p.classList.remove('active'));
 
             // Add active class to clicked button
             btn.classList.add('active');
