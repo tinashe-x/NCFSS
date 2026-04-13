@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add active class to clicked button
             btn.classList.add('active');
 
+            // Scroll tab into view for mobile carousel
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
             // Add active class to corresponding pane
             const targetId = btn.getAttribute('data-tab');
             const targetPane = document.getElementById(targetId);

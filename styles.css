@@ -248,6 +248,8 @@ a {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
     gap: 1rem;
     padding-bottom: 1rem;
     flex: 1 1 300px;
@@ -257,6 +259,8 @@ a {
     .tabs-nav {
         flex-direction: column;
         overflow-x: visible;
+        overflow-y: visible;
+        touch-action: auto;
         padding-bottom: 0;
     }
 }
