@@ -16,16 +16,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }, observerOptions);
 
     // Elements to animate
-    const slideUpElements = document.querySelectorAll('.slide-up, .service-card, .gallery-item');
+    const slideUpElements = document.querySelectorAll('.slide-up, .gallery-item, .tab-btn');
     slideUpElements.forEach((el, index) => {
-        // Add staggered delay based on index for cards and items
-        if (el.classList.contains('service-card') || el.classList.contains('gallery-item')) {
-            // Group by parent container approx index or just random stagger
+        // Add staggered delay based on index for items
+        if (el.classList.contains('gallery-item') || el.classList.contains('tab-btn')) {
             const staggerIndex = index % 5;
             el.style.transitionDelay = `${staggerIndex * 0.1}s`;
-            el.classList.add('slide-up');
+            if (!el.classList.contains('slide-up')) {
+                el.classList.add('slide-up');
+            }
         }
         observer.observe(el);
+    });
+
+    // Tab switching logic
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and panes
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            // Add active class to corresponding pane
+            const targetId = btn.getAttribute('data-tab');
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) {
+                targetPane.classList.add('active');
+            }
+        });
     });
 
     // Form submission mock functionality

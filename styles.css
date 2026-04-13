@@ -229,91 +229,172 @@ a {
     margin: 0 auto;
 }
 
-.services-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4rem;
-    align-items: flex-start;
-    max-width: 1400px;
+.services-tabs-container {
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-.services-flyer {
-    flex: 1 1 400px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border: 1px solid var(--glass-border);
-    background: #fff;
-}
-
-.services-flyer img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.6s ease;
-}
-
-.services-flyer:hover img {
-    transform: scale(1.02);
-}
-
-.services-grid {
-    flex: 2 1 600px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.service-card {
-    padding: 2.5rem 2rem;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     display: flex;
     flex-direction: column;
+    gap: 2rem;
 }
 
-.service-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+@media (min-width: 992px) {
+    .services-tabs-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.tabs-nav {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    flex: 1 1 300px;
+}
+
+@media (min-width: 992px) {
+    .tabs-nav {
+        flex-direction: column;
+        overflow-x: visible;
+        padding-bottom: 0;
+    }
+}
+
+.tab-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-btn svg {
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.tab-btn.active {
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 5px 20px var(--accent-glow);
+    color: var(--primary);
+}
+
+.tab-btn.active svg {
+    color: var(--primary);
+}
+
+.tabs-content {
+    flex: 2 1 700px;
+    position: relative;
+    width: 100%;
+}
+
+.tab-pane {
+    display: none;
+    padding: 3rem;
+    border-radius: 20px;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-pane.active {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .tab-pane.active {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.tab-text {
+    flex: 1;
+}
+
+.tab-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
     color: var(--text-color);
 }
 
-.service-card p {
+.tab-text p {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    flex-grow: 1;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
 }
 
-/* Icon Colors (Alternating Green & Pink) */
-.service-card .icon {
-    margin-bottom: 1.5rem;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 14px;
-    
+.tab-features {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.tab-features li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.tab-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
     color: var(--primary);
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05));
-    border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.service-card:nth-child(even) .icon {
-    color: var(--secondary);
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05));
-    border: 1px solid rgba(236, 72, 153, 0.2);
+.tab-media {
+    flex: 1;
 }
 
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.08);
-    border-color: rgba(16, 185, 129, 0.3);
+.tab-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    object-fit: cover;
 }
 
-.service-card:nth-child(even):hover {
-    box-shadow: 0 15px 35px rgba(236, 72, 153, 0.08);
-    border-color: rgba(236, 72, 153, 0.3);
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 991px) {
+    .tabs-nav::-webkit-scrollbar {
+        height: 6px;
+    }
+    .tabs-nav::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+    .tab-btn {
+        flex-shrink: 0;
+    }
+    .tab-btn:hover {
+        transform: translateY(-2px);
+    }
 }
 
 
@@ -460,12 +541,5 @@ footer {
     }
     .cta-box {
         padding: 3rem 1.5rem;
-    }
-    .services-container {
-        flex-direction: column;
-    }
-    .services-flyer, .services-grid {
-        flex: 1 1 100%;
-        width: 100%;
     }
 }
