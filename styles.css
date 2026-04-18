@@ -155,13 +155,61 @@ a {
 /* Hero Section */
 .hero {
     min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 0 5%;
+    padding: 120px 5% 60px; /* Top padding to clear fixed navbar and avoid overlap */
     text-align: center;
     background: url('PHOTO-2026-04-03-17-25-11%202.jpg') no-repeat center center/cover;
+    box-sizing: border-box;
+}
+
+.hero-glass-card {
+    padding: 4rem 3rem; 
+    text-align: center; 
+    border-radius: 24px; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    margin-top: 80px; /* More space above the card */
+    background: rgba(255, 255, 255, 0.75); /* More transparent to see the background */
+    backdrop-filter: blur(12px);
+}
+
+.hero-glass-card h2 {
+    font-size: 3rem; 
+    margin-bottom: 1rem; 
+    color: var(--text-color);
+}
+
+.hero-glass-card p {
+    font-size: 1.15rem; 
+    color: var(--text-muted); 
+    line-height: 1.8; 
+    margin-top: 1rem;
+}
+
+.hero-chat-container {
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 5% 40px;
+    }
+    .hero-glass-card {
+        padding: 2.5rem 1.5rem; 
+    }
+    .hero-glass-card h2 {
+        font-size: 2.2rem;
+    }
+    .hero-glass-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    .hero-chat-container {
+        margin-top: 1.5rem;
+    }
 }
 
 .hero-overlay {

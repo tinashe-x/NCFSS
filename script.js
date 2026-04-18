@@ -64,8 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add active class to clicked
             btn.classList.add('active');
 
-            // Scroll tab into view
-            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            // Strict horizontal scroll
+            const tabsNav = document.getElementById('tabsNav');
+            if (tabsNav) {
+                const targetLeft = btn.offsetLeft;
+                const centerPos = targetLeft - tabsNav.offsetWidth / 2 + btn.offsetWidth / 2;
+                tabsNav.scrollTo({
+                    left: centerPos,
+                    behavior: 'smooth'
+                });
+            }
 
             const targetId = btn.getAttribute('data-tab');
             const targetPane = document.getElementById(targetId);
@@ -74,6 +82,76 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Auto-rotate tabs every 2.5 seconds
+    let tabRotationInterval;
+    
+    if (tabBtns.length > 0) {
+        const rotateTabs = () => {
+            // Check if section is in viewport to avoid scrolling when user is elsewhere
+            const container = document.querySelector('.services-tabs-container');
+            if(!container) return;
+            
+            // Simple check if the tabs are generally in the viewport
+            const rect = container.getBoundingClientRect();
+            if(rect.top >= window.innerHeight || rect.bottom <= 0) {
+                return; // Container is completely off-screen, don't auto-rotate
+            }
+
+            let activeIndex = 0;
+            tabBtns.forEach((btn, index) => {
+                if (btn.classList.contains('active')) activeIndex = index;
+            });
+            
+            const nextIndex = (activeIndex + 1) % tabBtns.length;
+            const targetBtn = tabBtns[nextIndex];
+            
+            // Programmatically switch without triggering full click events that could cause unintended jumps
+            const containerBtns = container.querySelectorAll('.tab-btn');
+            const containerPanes = container.querySelectorAll('.tab-pane');
+
+            containerBtns.forEach(b => b.classList.remove('active'));
+            containerPanes.forEach(p => p.classList.remove('active'));
+
+            targetBtn.classList.add('active');
+            targetBtn.classList.add('active');
+            
+            // Strictly horizontal scroll 
+            const tabsNav = document.getElementById('tabsNav');
+            if (tabsNav) {
+                const targetLeft = targetBtn.offsetLeft;
+                const centerPos = targetLeft - tabsNav.offsetWidth / 2 + targetBtn.offsetWidth / 2;
+                tabsNav.scrollTo({
+                    left: centerPos,
+                    behavior: 'smooth'
+                });
+            }
+
+            const targetId = targetBtn.getAttribute('data-tab');
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) targetPane.classList.add('active');
+        };
+
+        tabRotationInterval = setInterval(rotateTabs, 2500);
+        let idleTimeout;
+
+        // Stop rotation upon user interaction, and restart after 20 seconds of inactivity
+        const tabsContainer = document.querySelector('.services-tabs-container');
+        if (tabsContainer) {
+            const handleInteraction = () => {
+                clearInterval(tabRotationInterval);
+                clearTimeout(idleTimeout);
+                
+                idleTimeout = setTimeout(() => {
+                    clearInterval(tabRotationInterval); // safeguard
+                    tabRotationInterval = setInterval(rotateTabs, 2500);
+                }, 20000);
+            };
+
+            tabsContainer.addEventListener('click', handleInteraction);
+            tabsContainer.addEventListener('touchstart', handleInteraction, {passive: true});
+        }
+    }
 
     // Tabs Scroll Indicator Logic
     const tabsNav = document.getElementById('tabsNav');
