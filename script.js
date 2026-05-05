@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Burger Menu Logic
     const burgerMenu = document.getElementById('burgerMenu');
     const navLinks = document.getElementById('navLinks');
-    
+
     if (burgerMenu && navLinks) {
         burgerMenu.addEventListener('click', () => {
             burgerMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
-        
+
         // Close menu when a link is clicked
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -85,16 +85,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Auto-rotate tabs every 2.5 seconds
     let tabRotationInterval;
-    
+
     if (tabBtns.length > 0) {
         const rotateTabs = () => {
             // Check if section is in viewport to avoid scrolling when user is elsewhere
             const container = document.querySelector('.services-tabs-container');
-            if(!container) return;
-            
+            if (!container) return;
+
             // Simple check if the tabs are generally in the viewport
             const rect = container.getBoundingClientRect();
-            if(rect.top >= window.innerHeight || rect.bottom <= 0) {
+            if (rect.top >= window.innerHeight || rect.bottom <= 0) {
                 return; // Container is completely off-screen, don't auto-rotate
             }
 
@@ -102,10 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
             tabBtns.forEach((btn, index) => {
                 if (btn.classList.contains('active')) activeIndex = index;
             });
-            
+
             const nextIndex = (activeIndex + 1) % tabBtns.length;
             const targetBtn = tabBtns[nextIndex];
-            
+
             // Programmatically switch without triggering full click events that could cause unintended jumps
             const containerBtns = container.querySelectorAll('.tab-btn');
             const containerPanes = container.querySelectorAll('.tab-pane');
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             targetBtn.classList.add('active');
             targetBtn.classList.add('active');
-            
+
             // Strictly horizontal scroll 
             const tabsNav = document.getElementById('tabsNav');
             if (tabsNav) {
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const handleInteraction = () => {
                 clearInterval(tabRotationInterval);
                 clearTimeout(idleTimeout);
-                
+
                 idleTimeout = setTimeout(() => {
                     clearInterval(tabRotationInterval); // safeguard
                     tabRotationInterval = setInterval(rotateTabs, 2500);
@@ -149,14 +149,14 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             tabsContainer.addEventListener('click', handleInteraction);
-            tabsContainer.addEventListener('touchstart', handleInteraction, {passive: true});
+            tabsContainer.addEventListener('touchstart', handleInteraction, { passive: true });
         }
     }
 
     // Tabs Scroll Indicator Logic
     const tabsNav = document.getElementById('tabsNav');
     const tabsScrollIndicator = document.getElementById('tabsScrollIndicator');
-    
+
     if (tabsNav && tabsScrollIndicator) {
         const updateIndicator = () => {
             // Check if we can scroll right
@@ -183,17 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
     accordionHeaders.forEach(header => {
         header.addEventListener('click', () => {
             const accordionItem = header.parentElement;
-            
+
             // Optional: close other open accordions in the same group
             // const currentActive = accordionItem.parentElement.querySelector('.accordion-item.active');
             // if(currentActive && currentActive !== accordionItem) {
             //     currentActive.classList.remove('active');
             //     currentActive.querySelector('.accordion-content').style.maxHeight = null;
             // }
-            
+
             accordionItem.classList.toggle('active');
             const content = header.nextElementSibling;
-            
+
             if (accordionItem.classList.contains('active')) {
                 content.style.maxHeight = content.scrollHeight + "px";
             } else {
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
@@ -217,4 +217,81 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Video Modal Logic
+    const galleryVideos = document.querySelectorAll('.gallery-single');
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalVideoSource = modalVideo ? modalVideo.querySelector('source') : null;
+    const closeModalBtn = document.querySelector('.video-modal-close');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+
+    if (videoModal && modalVideo && modalVideoSource && closeModalBtn && playPauseBtn) {
+        galleryVideos.forEach(video => {
+            video.addEventListener('click', () => {
+                const source = video.querySelector('source');
+                if (source) {
+                    modalVideoSource.src = source.src;
+                    modalVideo.load();
+                    videoModal.classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                    modalVideo.play().catch(e => console.log('Autoplay prevented', e));
+                    updatePlayPauseIcons(false);
+                }
+            });
+        });
+
+        const closeModal = () => {
+            videoModal.classList.remove('show');
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close on outside click
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal || e.target.classList.contains('video-modal-content')) {
+                closeModal();
+            }
+        });
+
+        const updatePlayPauseIcons = (isPaused) => {
+            if (isPaused) {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            } else {
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+            }
+        };
+
+        const togglePlayPause = () => {
+            if (modalVideo.paused) {
+                modalVideo.play();
+                updatePlayPauseIcons(false);
+            } else {
+                modalVideo.pause();
+                updatePlayPauseIcons(true);
+            }
+        };
+
+        playPauseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            togglePlayPause();
+        });
+        
+        modalVideo.addEventListener('click', (e) => {
+            e.stopPropagation();
+            togglePlayPause();
+        });
+        
+        // Update icons if video ends
+        modalVideo.addEventListener('ended', () => {
+            updatePlayPauseIcons(true);
+        });
+    }
 });
